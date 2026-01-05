@@ -1,0 +1,18 @@
+1.config.py中MySQL配置为本地库
+2.解码方式修改（不影响其他采集）
+3.insert_pageinfo_to_mysql.py中表名有不统一，全部设置为t_bidcollect_info
+4.insert_list_to_mysql.py中原先为未加is_active条件的版本，已设置为is_active=1时采集
+5.河北农信配置：
+find_list = soup.find('div',class_='left4').find_all('table',class_='x')
+find_href = item.find('a').get('href')
+find_title = item.find('a').text
+find_pub_time = item.find_all('td')[-1].text
+href = http://www.hebnx.com/news.asp?newcolId=1
+post_headers = {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+    "Cache-Control": "max-age=0",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0"
+}
